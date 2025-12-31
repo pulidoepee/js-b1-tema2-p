@@ -23,6 +23,30 @@ const myJSON = '[{"base":10,"height":5,"rightTriangle":true},{"base":10,"height"
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+class Triangle {
+	constructor(base, height, rightTriangle) {
+		this.base = base;
+		this.height = height;
+		this.rightTriangle = rightTriangle;
+	}
+
+	isEquilateral() {
+		const side = this.base;
+		const height = (Math.sqrt(3) / 2) * side;
+		return Math.abs(this.height - height) < 1e-10;
+	}
+}
+
+//Escribe aquí tu solución / escriviu aquí la vostra solució:
+const myTriangles = JSON.parse(myJSON).map(
+	triangle => new Triangle(triangle.base, triangle.height, triangle.rightTriangle)
+);
+
+const equilateralsTriangles = myTriangles.filter(
+	triangle => triangle.isEquilateral()
+);
+
+const newTrianglesJSON = JSON.stringify(equilateralsTriangles);
 
 
 

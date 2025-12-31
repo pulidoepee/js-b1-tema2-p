@@ -38,10 +38,72 @@
 	Finalment, crea almenys 3 objectes de la classe Triangle i fes 3 trucades a aquests nous mètodes.
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Triangle {
+  constructor(base, height, isRightAngled) {
+    this.base = base;
+    this.height = height;
+    this.isRightAngled = isRightAngled;
+  }
+
+  // PROPIEDAD requerida por el test
+  get rightTriangle() {
+    return this.isRightAngled;
+  }
+
+  // GETTER requerido por el test
+  get areaTriangle() {
+    return (this.base * this.height) / 2;
+  }
+
+  // GETTER requerido por el test
+  get rightHypotenuse() {
+    if (!this.isRightAngled) return null;
+    return Math.sqrt(this.base ** 2 + this.height ** 2);
+  }
+
+  // GETTER requerido por el test
+  get rightPerimeter() {
+    if (!this.isRightAngled) return null;
+    return this.base + this.height + this.rightHypotenuse;
+  }
+
+  // MÉTODO DE INSTANCIA
+  isEquilateral() {
+    return this.height === (this.base * Math.sqrt(3)) / 2;
+  }
+
+  // MÉTODO DE CLASE
+  static rightTriangleUnion(triangleA, triangleB) {
+    if (!triangleA.isRightAngled || !triangleB.isRightAngled) {
+      throw new Error("Both triangles must be right-angled.");
+    }
+
+    return (
+      triangleA.rightPerimeter +
+      triangleB.rightPerimeter +
+      Math.abs(triangleA.height - triangleB.height)
+    );
+  }
+
+  // MÉTODO DE CLASE
+  static areaPoligon(triangles) {
+    let totalArea = 0;
+    triangles.forEach(t => {
+      totalArea += t.areaTriangle;
+    });
+    return totalArea;
+  }
+}
 
 
 
+const triangle1 = new Triangle(10, 8.66, true);
+const triangle2 = new Triangle(6, 5.2, true);
+const triangle3 = new Triangle(10, 10 * Math.sqrt(3) / 2, false);
 
+console.log("¿triangle3 es equilátero?", triangle3.isEquilateral());
+console.log("Perímetro unión:", Triangle.rightTriangleUnion(triangle1, triangle2));
+console.log("Área del polígono:", Triangle.areaPoligon([triangle1, triangle2, triangle3]));
 
 
 /**

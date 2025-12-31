@@ -32,7 +32,50 @@
 	Finalment, crea almenys 3 objectes de la classe Car i fes 3 crides a aquests nous mètodes.
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Car {
+  constructor(brand, model, displacement, horsePower, year) {
+    this.brand = brand;
+    this.model = model;
+    this.displacement = displacement;
+    this.horsePower = horsePower;
+    this.year = year;
+  }
 
+  // MÉTODO DE INSTANCIA
+  cv2kw() {
+    return this.horsePower * 0.736;
+  }
+
+  // MÉTODO DE CLASE
+  static compareAntiguaty(carA, carB) {
+    return carA.year < carB.year ? carA : carB;
+  }
+
+  // MÉTODO DE CLASE
+  static maxDisplacement(cars) {
+    let max = 0;
+    let maxCar = null;
+
+    cars.forEach(car => {
+      if (car.displacement > max) {
+        max = car.displacement;
+        maxCar = car;
+      }
+    });
+
+    return maxCar;
+  }
+}
+
+// OBJETOS
+const myCar1 = new Car("Ford", "Mustang Boss 429", 7000, 375, 1969);
+const myCar2 = new Car("BMW", "520d", 1980, 136, 2002);
+const myCar3 = new Car("Mercedes-Benz", "280 SLC", 2746, 136, 1979);
+
+// LLAMADAS
+console.log("Más antiguo:", Car.compareAntiguaty(myCar1, myCar2));
+console.log("Mayor cilindrada:", Car.maxDisplacement([myCar1, myCar2, myCar3]));
+console.log("Potencia en kW del Mustang:", myCar1.cv2kw());
 
 
 

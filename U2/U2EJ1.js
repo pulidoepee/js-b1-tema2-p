@@ -32,6 +32,18 @@ class Car {
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+const myCar1 = {
+    brand: "Ford",
+    model: "Mustang Boss 429",
+    displacement: 7000,
+    horsePower: 375,
+    year: 1969,
+};
+
+const myCar2 = new Car("BMW", "520d", 1980, 136, 2002);
+const myCar3 = new Car("Mercedes-Benz", "280 SLC", 2746, 136, 1979);
+
+
 
 
 

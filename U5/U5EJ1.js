@@ -49,6 +49,27 @@ class Planet {
 }
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+const myPlanet1 = new Planet("Mercury", 57.9, false, 4879);
+const myPlanet2 = new Planet("Venus", 108.2, false, 12104);
+const myPlanet3 = new Planet("Earth", 149.6, false, 12742);
+const myPlanet4 = new Planet("Mars", 227.9, false, 6779);
+const myPlanet5 = new Planet("Jupiter", 778.5, true, 139820);
+const myPlanet6 = new Planet("Saturn", 1432.0, true, 116460);
+const myPlanet7 = new Planet("Uranus", 2867.0, true, 50724);
+const myPlanet8 = new Planet("Neptune", 4515.0, true, 49244);
+
+const starName = myPlanet1.nameOftheStar();
+const PWR = Planet.planetsWithRings([myPlanet1, myPlanet2, myPlanet3, myPlanet4, myPlanet5, myPlanet6, myPlanet7, myPlanet8]);
+const venusToSarturn = Planet.distanceBetweenPlanets(myPlanet2, myPlanet6);
+
+console.log("Nombre de la estrella:", starName);
+
+console.log("Planetas con anillos:");
+console.log(PWR);
+
+console.log("Distancia entre Venus y Saturno:");
+console.log(venusToSarturn);
+
 
 
 

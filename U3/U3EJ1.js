@@ -33,6 +33,27 @@ class Car {
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
 
+class Car {
+  constructor(brand, model, displacement, horsePower, year) {
+    this.brand = brand;
+    this.model = model;
+    this.displacement = displacement;
+    this.horsePower = horsePower;
+    this.year = year;
+  }
+
+
+// setter
+set carAntiguaty(yearsOld) {
+  const currentYear = 2023;
+  this.year = currentYear - yearsOld;
+}
+
+// getter
+get getCarDescription() {
+  return `${this.brand} ${this.model} ${this.displacement}cc`;
+}
+}
 
 
 
